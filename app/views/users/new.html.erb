@@ -1,0 +1,26 @@
+<%= form_for @user, html: { class: 'register-form' } do |f| %>
+  <div class="row">
+    <div class="one-third column">
+      <%= f.label :username %>
+      <%= f.text_field :username, class: 'u-full-width', placeholder: 'how you introduce yourself', autofocus: true %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email, class: 'u-full-width', placeholder: 'won\'t be shared' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'u-full-width', placeholder: 'the longer the better' %>
+
+      <%= f.submit 'Register now', class: 'button-primary' %>
+    </div>
+
+    <div class="two-thirds column">
+      <h2>Welcome to Twitter.</h2>
+
+      <p>
+        Connect with your friends — and other fascinating people. Get
+        in-the-moment updates on the things that interest you. And watch events
+        unfold, in real time, from every angle.
+      </p>
+    </div>
+  </div>
+<% end %>

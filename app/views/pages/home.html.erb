@@ -1,7 +1,7 @@
 <div class="home-welcome">
   <h1>Your social network, private.</h1>
 
-  <a href="#" class="button button-primary">Register now</a>
+  <%= link_to 'Register now', register_path, class: 'button button-primary' %>
 
   <div class="row values">
     <div class="one-third column">
@@ -9,7 +9,7 @@
 
       <p>
         We are not here to fool you, this social network is
-        <a href="#">yours</a>.
+        <%= link_to 'yours', no_bullshit_path %>.
       </p>
     </div>
 
@@ -17,7 +17,8 @@
       <h4>No monetizing</h4>
 
       <p>
-        We do not make money with your <a href="#">personal information</a>,
+        We do not make money with your
+        <%= link_to 'personal information', no_monetizing_path %>,
         period.
       </p>
     </div>
@@ -26,8 +27,8 @@
       <h4>No surveillance</h4>
 
       <p>
-        Everything is <a href="#">encrypted</a>, with a
-        <a href="#">distributed</a> architecture.
+        Everything is <%= link_to 'encrypted', no_surveillance_path %>, with a
+        <%= link_to 'distributed', no_surveillance_path %> architecture.
       </p>
     </div>
   </div>

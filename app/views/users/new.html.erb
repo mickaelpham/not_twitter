@@ -1,11 +1,19 @@
-<%= form_for @user, html: { class: 'register-form' } do |f| %>
+<%= form_for @user, url: register_path, html: { class: 'register-form' } do |f| %>
   <div class="row">
     <div class="one-third column">
+      <% if @user.errors.any? %>
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      <% end %>
+
       <%= f.label :username %>
       <%= f.text_field :username, class: 'u-full-width', placeholder: 'how you introduce yourself', autofocus: true %>
 
       <%= f.label :email %>
-      <%= f.text_field :email, class: 'u-full-width', placeholder: 'won\'t be shared' %>
+      <%= f.email_field :email, class: 'u-full-width', placeholder: 'won\'t be shared' %>
 
       <%= f.label :password %>
       <%= f.password_field :password, class: 'u-full-width', placeholder: 'the longer the better' %>

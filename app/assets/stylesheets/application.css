@@ -16,3 +16,10 @@
  *= require_tree .
  *= require_self
  */
+
+.user-infos {
+  margin-top: 10px;
+  text-align: right;
+  font-size: .85em;
+  color: gray;
+}

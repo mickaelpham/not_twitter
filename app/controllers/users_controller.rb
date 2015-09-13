@@ -16,6 +16,14 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
+    @user = User.new(user_params)
+
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to root_url
+    else
+      render :new
+    end
   end
 
   # PATCH/PUT /users/1

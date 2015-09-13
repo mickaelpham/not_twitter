@@ -1,0 +1,10 @@
+<div class="user-infos">
+  <% if current_user %>
+    Logged in as <%= current_user.username %>.
+    <%= link_to 'Logout', logout_path %>
+  <% else %>
+    Want to join?
+    <%= link_to 'Log in', login_path %> or
+    <%= link_to 'sign up', register_path %> in seconds.
+  <% end %>
+</div>

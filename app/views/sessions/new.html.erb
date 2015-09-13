@@ -1,0 +1,13 @@
+<%= form_tag login_path, class: 'login-form' do %>
+  <div class="row">
+    <div class="one-third column">
+      <%= label_tag :email %>
+      <%= email_field_tag :email, params[:email], class: 'u-full-width', placeholder: 'that you used to register', autofocus: true %>
+
+      <%= label_tag :password %>
+      <%= password_field_tag :password, params[:password], class: 'u-full-width', placeholder: 'to authenticate you' %>
+
+      <%= submit_tag 'Log in', class: 'button-primary' %>
+    </div>
+  </div>
+<% end %>

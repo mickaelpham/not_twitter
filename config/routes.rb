@@ -5,9 +5,14 @@ Rails.application.routes.draw do
   get 'no-monetizing'   => 'pages#no_monetizing'
   get 'no-surveillance' => 'pages#no_surveillance'
 
-  resources :users, only: [:create, :show, :update]
+  get 'register'  => 'users#new'
+  post 'register' => 'users#create'
 
-  get 'register' => 'users#new'
+  get 'login'  => 'sessions#new'
+  post 'login' => 'sessions#create'
+  get 'logout' => 'sessions#destroy'
+
+  resources :users, only: [:show, :update]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

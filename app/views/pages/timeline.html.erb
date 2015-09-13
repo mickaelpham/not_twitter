@@ -1,7 +1,11 @@
 <div class="row timeline-content">
   <div class="four columns profile">
     <div class="timeline-profile">
-      <h5><%= current_user.username %></h5>
+      <h5>
+        <%= current_user.username %>
+
+        <small>@<%= current_user.username %></small>
+      </h5>
 
       <table class="u-full-width">
         <thead>
@@ -55,6 +59,9 @@
               <li><a href="#">reply</a></li>
               <li><a href="#">retweet</a></li>
               <li><a href="#">favorite</a></li>
+              <% if t.author == current_user %>
+                <li><%= link_to 'delete', t, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+              <% end %>
             </ul>
           </div>
         </div>

@@ -58,7 +58,6 @@
             <ul>
               <li><a href="#">reply</a></li>
               <li><a href="#">retweet</a></li>
-              <li><a href="#">favorite</a></li>
               <% if t.author == current_user %>
                 <li><%= link_to 'delete', t, method: :delete, data: { confirm: 'Are you sure?' } %></li>
               <% end %>

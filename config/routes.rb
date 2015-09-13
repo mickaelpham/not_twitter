@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'no-bullshit'     => 'pages#no_bullshit'
   get 'no-monetizing'   => 'pages#no_monetizing'
   get 'no-surveillance' => 'pages#no_surveillance'
+  get 'timeline'        => 'pages#timeline'
 
   get 'register'  => 'users#new'
   post 'register' => 'users#create'

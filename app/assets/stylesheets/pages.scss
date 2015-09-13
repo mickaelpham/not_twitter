@@ -10,3 +10,27 @@
 .home-welcome .values {
   margin-top: 10%;
 }
+
+.timeline-content {
+  margin-top: 5%;
+}
+
+.timeline-profile table thead th {
+  text-transform: uppercase;
+  color: #8C9CA9;
+  font-size: .8em;
+  font-weight: normal;
+  padding: 0px;
+  border-bottom-width: 0px;
+}
+
+.timeline-profile table tbody td {
+  padding: 0px;
+  border-bottom-width: 0px;
+  font-weight: bold;
+}
+
+.timeline-tweet-footer ul li {
+  display: inline-block;
+  margin-right: 2em;
+}

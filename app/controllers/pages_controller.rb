@@ -13,4 +13,12 @@ class PagesController < ApplicationController
 
   def no_surveillance
   end
+
+  def timeline
+    # Initialize a tweet for the "What's happening?" form
+    @tweet = Tweet.new
+
+    # Retrieve the list of tweets (posted, retweeted, followed)
+    @timeline_tweets = Tweet.all.order(created_at: :desc)
+  end
 end

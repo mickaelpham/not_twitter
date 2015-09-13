@@ -11,14 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150912211644) do
+ActiveRecord::Schema.define(version: 20150913190351) do
+
+  create_table "tweets", force: :cascade do |t|
+    t.integer  "author_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "tweets", ["author_id"], name: "index_tweets_on_author_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "username"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "tweets_count",    default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email"

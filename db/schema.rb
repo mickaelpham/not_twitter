@@ -11,18 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150914043935) do
+ActiveRecord::Schema.define(version: 20150914052149) do
 
   create_table "followers", id: false, force: :cascade do |t|
     t.integer  "follower_id"
-    t.integer  "followed_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "following_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
-  add_index "followers", ["followed_id"], name: "index_followers_on_followed_id"
-  add_index "followers", ["follower_id", "followed_id"], name: "index_followers_on_follower_id_and_followed_id", unique: true
+  add_index "followers", ["follower_id", "following_id"], name: "index_followers_on_follower_id_and_following_id", unique: true
   add_index "followers", ["follower_id"], name: "index_followers_on_follower_id"
+  add_index "followers", ["following_id"], name: "index_followers_on_following_id"
 
   create_table "tweets", force: :cascade do |t|
     t.integer  "author_id"
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 20150914043935) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.integer  "tweets_count",    default: 0
+    t.integer  "followers_count", default: 0
+    t.integer  "following_count", default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email"

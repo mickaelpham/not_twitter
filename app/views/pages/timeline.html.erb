@@ -45,7 +45,9 @@
           <div class="timeline-tweet-meta"></div>
 
           <div class="timeline-tweet-header">
-            <strong><%= t.author.username %></strong>
+            <strong class="timeline-tweet-author">
+              <%= link_to t.author.username, user_path(t.author) %>
+            </strong>
             @<%= t.author.username %> &bullet;
             <%= t.updated_at %>
           </div>

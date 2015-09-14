@@ -17,7 +17,7 @@
 
 .timeline-profile table thead th {
   text-transform: uppercase;
-  color: #8C9CA9;
+  color: #8899A6;
   font-size: .8em;
   font-weight: normal;
   padding: 0px;
@@ -31,7 +31,7 @@
 }
 
 .timeline-profile h5 small {
-  color: #8C9CA9;
+  color: #8899A6;
 }
 
 .timeline-tweet-footer {
@@ -41,4 +41,18 @@
 .timeline-tweet-footer ul li {
   display: inline-block;
   margin-right: 2em;
+}
+
+.timeline-tweet-author a {
+  color: #000;
+  text-decoration: none;
+}
+
+.timeline-tweet-author a:hover {
+  color: #1EAEDB;
+  text-decoration: underline;
+}
+
+.timeline-tweet-header {
+  color: #8899A6;
 }

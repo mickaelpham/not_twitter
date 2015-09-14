@@ -1,3 +1,75 @@
-<div class="user-profile">
-  <h4><%= @user.username %>'s profile</h4>
+<div class="row user-profile">
+  <div class="four columns">
+    <% if current_user == @user %>
+      <h5>My Profile</h5>
+    <% else %>
+      <h5><%= @user.username %>'s profile</h5>
+    <% end %>
+
+    <table class="u-full-width profile-stats">
+      <thead>
+        <tr>
+          <th>Tweets</th>
+          <th>Following</th>
+          <th>Followers</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td><%= @user.tweets_count %></td>
+          <td><%= @user.following_count %></td>
+          <td><%= @user.followers_count %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <% if current_user == @user %>
+      <button>Edit Profile</button>
+    <% elsif is_following?(@user.id) %>
+      <%= link_to 'Unfollow', unfollow_path(@user.id), method: :delete, class: 'button' %>
+    <% else %>
+      <%= link_to 'Follow', follow_path(@user.id), method: :post, class: 'button button-primary' %>
+    <% end %>
+  </div>
+
+  <div class="eight columns">
+    <% if current_user == @user %>
+      <h5>My Tweets</h5>
+    <% else %>
+      <h5><%= @user.username %>'s Tweets</h5>
+    <% end %>
+
+    <% if @tweets.any? %>
+      <% @tweets.each do |t| %>
+        <div class="timeline-tweet">
+          <div class="timeline-tweet-meta"></div>
+
+          <div class="timeline-tweet-header">
+            <strong class="timeline-tweet-author">
+              <%= link_to t.author.username, user_path(t.author) %>
+            </strong>
+            @<%= t.author.username %> &bullet;
+            <%= t.updated_at %>
+          </div>
+
+          <div class="timeline-tweet-content">
+            <%= t.content %>
+          </div>
+
+          <div class="timeline-tweet-footer">
+            <ul>
+              <li><a href="#">reply</a></li>
+              <li><a href="#">retweet</a></li>
+              <% if t.author == current_user %>
+                <li><%= link_to 'delete', t, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <p>It seems like there is nothing to display here :(</p>
+    <% end %>
+  </div>
 </div>

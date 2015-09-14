@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20150914052149) do
 
-  create_table "followers", id: false, force: :cascade do |t|
+  create_table "followers", force: :cascade do |t|
     t.integer  "follower_id"
     t.integer  "following_id"
     t.datetime "created_at",   null: false

@@ -9,3 +9,22 @@
 .user-profile {
   margin-top: 5%;
 }
+
+.user-profile h5 small {
+  color: #8899A6;
+}
+
+.profile-stats thead th {
+  text-transform: uppercase;
+  color: #8899A6;
+  font-size: .8em;
+  font-weight: normal;
+  padding: 0px;
+  border-bottom-width: 0px;
+}
+
+.profile-stats tbody td {
+  padding: 0px;
+  border-bottom-width: 0px;
+  font-weight: bold;
+}

@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    @tweets = Tweet.where(author: @user).order(created_at: :desc)
   end
 
   # GET /register

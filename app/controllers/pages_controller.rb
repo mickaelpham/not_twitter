@@ -19,6 +19,6 @@ class PagesController < ApplicationController
     @tweet = Tweet.new
 
     # Retrieve the list of tweets (posted, retweeted, followed)
-    @timeline_tweets = Tweet.all.order(created_at: :desc)
+    @timeline_tweets = current_user.timeline_tweets
   end
 end

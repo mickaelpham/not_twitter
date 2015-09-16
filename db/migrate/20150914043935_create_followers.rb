@@ -1,8 +1,8 @@
 class CreateFollowers < ActiveRecord::Migration
   def change
     create_table :followers do |t|
-      t.belongs_to :follower,  index: true, foreign_key: true
-      t.belongs_to :following, index: true, foreign_key: true
+      t.integer :follower_id,  index: true, foreign_key: true
+      t.integer :following_id, index: true, foreign_key: true
 
       t.timestamps null: false
     end

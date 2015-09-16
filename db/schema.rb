@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150914052149) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "followers", force: :cascade do |t|
     t.integer  "follower_id"
     t.integer  "following_id"
@@ -20,9 +23,9 @@ ActiveRecord::Schema.define(version: 20150914052149) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "followers", ["follower_id", "following_id"], name: "index_followers_on_follower_id_and_following_id", unique: true
-  add_index "followers", ["follower_id"], name: "index_followers_on_follower_id"
-  add_index "followers", ["following_id"], name: "index_followers_on_following_id"
+  add_index "followers", ["follower_id", "following_id"], name: "index_followers_on_follower_id_and_following_id", unique: true, using: :btree
+  add_index "followers", ["follower_id"], name: "index_followers_on_follower_id", using: :btree
+  add_index "followers", ["following_id"], name: "index_followers_on_following_id", using: :btree
 
   create_table "tweets", force: :cascade do |t|
     t.integer  "author_id"
@@ -31,7 +34,7 @@ ActiveRecord::Schema.define(version: 20150914052149) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "tweets", ["author_id"], name: "index_tweets_on_author_id"
+  add_index "tweets", ["author_id"], name: "index_tweets_on_author_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
@@ -44,6 +47,7 @@ ActiveRecord::Schema.define(version: 20150914052149) do
     t.integer  "following_count", default: 0
   end
 
-  add_index "users", ["email"], name: "index_users_on_email"
+  add_index "users", ["email"], name: "index_users_on_email", using: :btree
 
+  add_foreign_key "tweets", "users", column: "author_id"
 end

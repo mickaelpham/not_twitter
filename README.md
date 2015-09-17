@@ -15,3 +15,9 @@ Then open your web brower to `http://localhost:3000` and experiment!
 ## Deployment
 
 Coming soon to [Heroku](https://heroku.com)!
+
+## Where I want to go
+
+  - [ ] Add the regular features from [Twitter](https://twitter.com) like reply and retweet.
+  - [ ] Add client-side encryption (and explanation page).
+  - [ ] Store user's public key and find a way to "ask" for the follower's key as well (TBD).
